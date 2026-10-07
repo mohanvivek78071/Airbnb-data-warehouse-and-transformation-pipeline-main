@@ -322,7 +322,7 @@ The `generate_schema_name` macro overrides dbt's default `<target_schema>_<custo
 
 ## ✍️ Author & License
 
-**Author:** Surya
+**Author:** Mohan
 Built as an end-to-end data engineering portfolio project demonstrating production dbt/Snowflake/S3 patterns.
 
 **License:** MIT — free to use, adapt, and learn from. See `LICENSE` for details.
