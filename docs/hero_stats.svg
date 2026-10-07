@@ -1,0 +1,92 @@
+<svg viewBox="0 0 1200 380" xmlns="http://www.w3.org/2000/svg" font-family="Cascadia Code, Consolas, Segoe UI, monospace">
+  <defs>
+    <linearGradient id="hsBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0A0E14"/>
+      <stop offset="100%" stop-color="#141B2E"/>
+    </linearGradient>
+    <linearGradient id="hsAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFB020"/>
+      <stop offset="100%" stop-color="#818CF8"/>
+    </linearGradient>
+    <filter id="hsGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <style>
+      .tile-label { font-size: 12px; fill: #9CA8C4; letter-spacing: 1px; }
+      .tile-value { font-size: 28px; font-weight: 700; fill: #F5F7FA; }
+      .pulse { animation: pulseGlow 3s ease-in-out infinite; }
+      @keyframes pulseGlow {
+        0%   { opacity: 0.8; }
+        50%  { opacity: 1; }
+        100% { opacity: 0.8; }
+      }
+      .bar { animation: growBar 2.2s ease-out forwards; }
+      @keyframes growBar {
+        from { transform: scaleX(0); }
+        to   { transform: scaleX(1); }
+      }
+    </style>
+  </defs>
+
+  <rect width="1200" height="380" rx="18" fill="url(#hsBg)" stroke="#26324A"/>
+
+  <text x="30" y="34" font-size="13" fill="#FFB020" letter-spacing="1px">$ dbt build --select gold.fact_table+</text>
+
+  <text x="40" y="70" font-size="22" font-weight="700" fill="#F5F7FA">Airbnb Performance — At a Glance</text>
+  <text x="40" y="93" font-size="12.5" fill="#9CA8C4">Live metrics from the Gold-layer Star Schema</text>
+
+  <!-- Stat tiles -->
+  <g class="pulse" filter="url(#hsGlow)">
+    <rect x="40" y="115" width="255" height="105" rx="12" fill="none" stroke="#FFB020" stroke-width="1.5"/>
+    <text class="tile-label" x="60" y="143">TOTAL REVENUE</text>
+    <text class="tile-value" x="60" y="182">62.53M</text>
+    <rect x="60" y="195" width="215" height="5" rx="2.5" fill="#26324A"/>
+    <rect x="60" y="195" width="215" height="5" rx="2.5" fill="#FFB020" class="bar" style="transform-origin: 60px 197px;"/>
+  </g>
+
+  <g class="pulse" filter="url(#hsGlow)" style="animation-delay:0.25s;">
+    <rect x="315" y="115" width="255" height="105" rx="12" fill="none" stroke="#2DD4BF" stroke-width="1.5"/>
+    <text class="tile-label" x="335" y="143">TOTAL BOOKINGS</text>
+    <text class="tile-value" x="335" y="182">5K</text>
+    <rect x="335" y="195" width="215" height="5" rx="2.5" fill="#26324A"/>
+    <rect x="335" y="195" width="150" height="5" rx="2.5" fill="#2DD4BF" class="bar" style="transform-origin: 335px 197px;"/>
+  </g>
+
+  <g class="pulse" filter="url(#hsGlow)" style="animation-delay:0.5s;">
+    <rect x="590" y="115" width="255" height="105" rx="12" fill="none" stroke="#34D399" stroke-width="1.5"/>
+    <text class="tile-label" x="610" y="143">TOTAL LISTINGS</text>
+    <text class="tile-value" x="610" y="182">500</text>
+    <rect x="610" y="195" width="215" height="5" rx="2.5" fill="#26324A"/>
+    <rect x="610" y="195" width="120" height="5" rx="2.5" fill="#34D399" class="bar" style="transform-origin: 610px 197px;"/>
+  </g>
+
+  <g class="pulse" filter="url(#hsGlow)" style="animation-delay:0.75s;">
+    <rect x="865" y="115" width="255" height="105" rx="12" fill="none" stroke="#FF5C5C" stroke-width="1.5"/>
+    <text class="tile-label" x="885" y="143">TOTAL HOSTS</text>
+    <text class="tile-value" x="885" y="182">189</text>
+    <rect x="885" y="195" width="215" height="5" rx="2.5" fill="#26324A"/>
+    <rect x="885" y="195" width="90" height="5" rx="2.5" fill="#FF5C5C" class="bar" style="transform-origin: 885px 197px;"/>
+  </g>
+
+  <!-- Revenue by property type mini bars -->
+  <text x="40" y="258" font-size="12" fill="#9CA8C4" letter-spacing="1px">REVENUE BY PROPERTY TYPE</text>
+
+  <text x="40" y="288" font-size="12" fill="#C7CEDB">House</text>
+  <rect x="130" y="276" width="1030" height="13" rx="6.5" fill="#26324A"/>
+  <rect x="130" y="276" width="357" height="13" rx="6.5" fill="url(#hsAccent)" class="bar" style="transform-origin: 130px 282.5px;"/>
+  <text x="1090" y="288" font-size="12" fill="#C7CEDB" text-anchor="end">21.5M</text>
+
+  <text x="40" y="318" font-size="12" fill="#C7CEDB">Condo</text>
+  <rect x="130" y="306" width="1030" height="13" rx="6.5" fill="#26324A"/>
+  <rect x="130" y="306" width="350" height="13" rx="6.5" fill="url(#hsAccent)" class="bar" style="transform-origin: 130px 312.5px;"/>
+  <text x="1090" y="318" font-size="12" fill="#C7CEDB" text-anchor="end">21.1M</text>
+
+  <text x="40" y="348" font-size="12" fill="#C7CEDB">Apartment</text>
+  <rect x="130" y="336" width="1030" height="13" rx="6.5" fill="#26324A"/>
+  <rect x="130" y="336" width="329" height="13" rx="6.5" fill="url(#hsAccent)" class="bar" style="transform-origin: 130px 342.5px;"/>
+  <text x="1090" y="348" font-size="12" fill="#C7CEDB" text-anchor="end">19.9M</text>
+</svg>
